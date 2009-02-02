@@ -48,7 +48,7 @@ special about PyCuda?
 
 %prep
 %setup -q -n %{module}-%{version}
-%patch -p0
+%patch0 -p0
 
 %build
 ./configure

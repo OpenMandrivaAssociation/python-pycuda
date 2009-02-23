@@ -1,6 +1,6 @@
 %define module	pycuda
 %define name	python-%{module}
-%define version	0.91.1
+%define version	0.92
 %define release %mkrel 1
 
 # Since x11-driver-video-nvidia-current doesn't explicitly provide this, it shouldn't
@@ -51,7 +51,7 @@ special about PyCuda?
 %patch0 -p0
 
 %build
-./configure
+./configure.py --cudadrv-lib-dir=/usr/lib/nvidia-current,/usr/lib64/nvidia-current
 %__python setup.py build
 
 make -C doc PAPER=letter latex

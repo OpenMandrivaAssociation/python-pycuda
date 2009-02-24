@@ -1,10 +1,10 @@
 %define module	pycuda
 %define name	python-%{module}
 %define version	0.92
-%define release %mkrel 1
+%define release %mkrel 2
 
-# Since x11-driver-video-nvidia-current doesn't explicitly provide this, it shouldn't
-# be included in the requires list:
+# Since x11-driver-video-nvidia-current doesn't explicitly provide
+# this, it shouldn't be included in the requires list:
 %define _requires_exceptions libcuda.*
 
 Summary:	Python wrapper for NVIDIA's CUDA API
@@ -18,8 +18,10 @@ Group:		Development/Python
 Url:		http://mathema.tician.de/software/pycuda
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	nvidia-cuda-toolkit >= 2.0
+Requires:	nvidia >= 177.70
 Requires:	python-pytools
 BuildRequires:	nvidia-cuda-toolkit-devel >= 2.0
+BuildRequires:	nvidia-devel >= 177.70
 BuildRequires:	python-numpy-devel >= 1.0.4
 BuildRequires:	boost-devel
 BuildRequires:	python-sphinx, tetex-latex

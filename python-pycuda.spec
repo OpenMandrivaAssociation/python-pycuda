@@ -1,7 +1,7 @@
 %define module	pycuda
 %define name	python-%{module}
 %define version	0.93
-%define release %mkrel 1
+%define release %mkrel 2
 
 # Since x11-driver-video-nvidia-current doesn't explicitly provide
 # this, it shouldn't be included in the requires list:
@@ -12,6 +12,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Source0:	http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
+Patch0:		include-path.patch
 License:	MIT
 Group:		Development/Python
 Url:		http://mathema.tician.de/software/pycuda
@@ -19,6 +20,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	nvidia-cuda-toolkit >= 2.0
 Requires:	nvidia >= 177.70
 Requires:	python-pytools >= 8
+BuildRequires:	python-setuptools >= 0.6c9
 BuildRequires:	nvidia-cuda-toolkit-devel >= 2.0
 BuildRequires:	nvidia-devel >= 177.70
 BuildRequires:	python-numpy-devel >= 1.0.4
@@ -49,6 +51,7 @@ special about PyCuda?
 
 %prep
 %setup -q -n %{module}-%{version}
+%patch0 -p0
 
 %build
 ./configure.py --cudadrv-lib-dir=/usr/lib/nvidia-current,/usr/lib64/nvidia-current \

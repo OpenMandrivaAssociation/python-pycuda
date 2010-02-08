@@ -1,7 +1,7 @@
 %define module	pycuda
 %define name	python-%{module}
 %define version	0.93
-%define release %mkrel 2
+%define release %mkrel 3
 
 # Since x11-driver-video-nvidia-current doesn't explicitly provide
 # this, it shouldn't be included in the requires list:

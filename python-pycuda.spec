@@ -1,7 +1,11 @@
 %define module	pycuda
 %define name	python-%{module}
-%define version	0.93
-%define release %mkrel 3
+%define version	0.94
+%define rel	rc0
+%define release %mkrel 0.%{rel}
+
+# NVIDIA driver version required by CUDA:
+%define driver_ver 195.0
 
 # Since x11-driver-video-nvidia-current doesn't explicitly provide
 # this, it shouldn't be included in the requires list:
@@ -11,18 +15,17 @@ Summary:	Python wrapper for NVIDIA's CUDA API
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Source0:	http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
-Patch0:		include-path.patch
+Source0:        http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}rc.tar.gz
 License:	MIT
 Group:		Development/Python
 Url:		http://mathema.tician.de/software/pycuda
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Requires:	nvidia-cuda-toolkit >= 2.0
-Requires:	nvidia >= 177.70
+Requires:	nvidia-cuda-toolkit >= 3.0
+Requires:	nvidia >= %{driver_ver}
 Requires:	python-pytools >= 8
 BuildRequires:	python-setuptools >= 0.6c9
-BuildRequires:	nvidia-cuda-toolkit-devel >= 2.0
-BuildRequires:	nvidia-devel >= 177.70
+BuildRequires:	nvidia-cuda-toolkit-devel >= 3.0
+BuildRequires:	nvidia-devel >= %{driver_ver}
 BuildRequires:	python-numpy-devel >= 1.0.4
 BuildRequires:	boost-devel
 BuildRequires:	python-sphinx
@@ -50,15 +53,17 @@ special about PyCuda?
 * Helpful Documentation.
 
 %prep
-%setup -q -n %{module}-%{version}
-%patch0 -p0
+%setup -q -n %{module}-%{version}rc
 
 %build
+find -name .gitignore | xargs rm -f
+
 ./configure.py --cudadrv-lib-dir=/usr/lib/nvidia-current,/usr/lib64/nvidia-current \
 --boost-inc-dir=/usr/include/boost --boost-python-libname=boost_python --boost-thread-libname=boost_thread
 %__python setup.py build
 
 make -C doc PAPER=letter html
+find -name .buildinfo | xargs rm -f
 
 %install
 %__rm -rf %{buildroot}
@@ -69,5 +74,5 @@ make -C doc PAPER=letter html
 
 %files -f FILE_LIST
 %defattr(-,root,root)
-%doc doc/build/html/* examples/ README
+%doc doc/build/html/ examples/ README
 

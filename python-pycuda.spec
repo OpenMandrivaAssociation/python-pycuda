@@ -16,6 +16,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 Source0:        http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}rc.tar.gz
+Patch0:		no-distribute.patch
 License:	MIT
 Group:		Development/Python
 Url:		http://mathema.tician.de/software/pycuda
@@ -54,12 +55,14 @@ special about PyCuda?
 
 %prep
 %setup -q -n %{module}-%{version}rc
+%patch0 -p0
 
 %build
 find -name .gitignore | xargs rm -f
 
 ./configure.py --cudadrv-lib-dir=/usr/lib/nvidia-current,/usr/lib64/nvidia-current \
---boost-inc-dir=/usr/include/boost --boost-python-libname=boost_python --boost-thread-libname=boost_thread
+--boost-inc-dir=/usr/include/,/usr/include/boost \
+--boost-lib-dir=/usr/lib,/usr/lib64 --boost-python-libname=boost_python --boost-thread-libname=boost_thread
 %__python setup.py build
 
 make -C doc PAPER=letter html

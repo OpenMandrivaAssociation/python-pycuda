@@ -1,6 +1,6 @@
 %define module	pycuda
 %define name	python-%{module}
-%define version	0.94.1
+%define version	0.94.2
 %define release %mkrel 1
 
 # NVIDIA driver version required by CUDA:
@@ -72,7 +72,7 @@ find -name .buildinfo | xargs rm -f
 %install
 %__rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= ./CUDA/bin/python setup.py install --root=tmp/
-PYCUDAROOT=`find tmp/ -name pycuda-0.94.1`
+PYCUDAROOT=`find tmp/ -name pycuda-%{version}`
 echo $PYCUDAROOT
 %__install -d -m 755 %{buildroot}/usr
 mv -f $PYCUDAROOT/CUDA/* %{buildroot}/usr/

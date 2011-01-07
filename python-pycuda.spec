@@ -1,7 +1,7 @@
 %define module	pycuda
 %define name	python-%{module}
 %define version	0.94.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 # NVIDIA driver version required by CUDA:
 %define driver_ver 195.0
@@ -20,6 +20,7 @@ Group:		Development/Python
 Url:		http://mathema.tician.de/software/pycuda
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	nvidia-cuda-toolkit >= 3.0
+Requires:	nvidia-current-cuda-opencl >= %{driver_ver}
 Requires:	nvidia >= %{driver_ver}
 Requires:	python-pytools >= 8
 Requires:	python-decorator >= 3.2.0

@@ -1,7 +1,7 @@
 %define module	pycuda
 %define name	python-%{module}
 %define version	0.94.2
-%define release %mkrel 2
+%define release %mkrel 3
 
 # NVIDIA driver version required by CUDA:
 %define driver_ver 195.0

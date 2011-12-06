@@ -1,13 +1,13 @@
 %define module	pycuda
 %define name	python-%{module}
-%define version	2011.1.2
+%define version	2011.2
 %define release %mkrel 1
 
 # CUDA version used to build the package:
-%define cuda_ver 3.2
+%define cuda_ver 4.0
 
 # NVIDIA driver version required by CUDA:
-%define driver_ver 260.19.26
+%define driver_ver 270.41
 
 # Since x11-driver-video-nvidia-current doesn't explicitly provide
 # this, it shouldn't be included in the requires list:
@@ -17,7 +17,7 @@ Summary:	Python wrapper for NVIDIA's CUDA API
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Source0:        http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
+Source0:    http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
 License:	MIT
 Group:		Development/Python
 Url:		http://mathema.tician.de/software/pycuda

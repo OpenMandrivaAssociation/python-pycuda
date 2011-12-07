@@ -1,6 +1,6 @@
 %define module	pycuda
 %define name	python-%{module}
-%define version	2011.2
+%define version	2011.2.1
 %define release %mkrel 1
 
 # CUDA version used to build the package:

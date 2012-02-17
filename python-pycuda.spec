@@ -1,7 +1,7 @@
 %define module	pycuda
 %define name	python-%{module}
 %define version	2011.2.2
-%define release %mkrel 1
+%define release %mkrel 2
 
 # CUDA version used to build the package:
 %define cuda_ver 4.0
@@ -25,6 +25,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:	nvidia-cuda-toolkit >= %{cuda_ver}
 Requires:	nvidia-current-cuda-opencl >= %{driver_ver}
 Requires:	nvidia >= %{driver_ver}
+Requires:	python-mako
 Requires:	python-pytools >= 2011.2
 Requires:	python-decorator >= 3.2.0
 BuildRequires:	python-setuptools >= 0.6c9

@@ -1,7 +1,7 @@
 %define module	pycuda
 %define name	python-%{module}
-%define version	2011.2.2
-%define	rel		3
+%define version	2012.1
+%define	rel		1
 %if %mdkversion < 201100
 %define release %mkrel %rel
 %else

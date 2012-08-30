@@ -1,7 +1,7 @@
 %define module	pycuda
 %define name	python-%{module}
 %define version	2012.1
-%define	rel		1
+%define	rel		2
 %if %mdkversion < 201100
 %define release %mkrel %rel
 %else
@@ -37,6 +37,7 @@ Requires:	nvidia >= %{driver_ver}
 Requires:	python-mako
 Requires:	python-pytools >= 2011.2
 Requires:	python-decorator >= 3.2.0
+Requires:	python-pytest >= 2
 BuildRequires:	python-setuptools >= 0.6c9
 BuildRequires:	nvidia-cuda-toolkit-devel >= %{cuda_ver}
 BuildRequires:	nvidia-devel >= %{driver_ver}

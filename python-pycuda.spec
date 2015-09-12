@@ -18,7 +18,7 @@ Summary:	Python wrapper for NVIDIA's CUDA API
 
 Name:		python-%{module}
 Version:	2012.1
-Release:	4
+Release:	5
 Source0:        http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
 License:	MIT
 Group:		Development/Python

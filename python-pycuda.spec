@@ -20,6 +20,7 @@ Name:		python-%{module}
 Version:	2015.1.3
 Release:	1
 Source0:        http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
+Source100:	python-pycuda.rpmlintrc
 License:	MIT
 Group:		Development/Python
 Url:		http://mathema.tician.de/software/pycuda

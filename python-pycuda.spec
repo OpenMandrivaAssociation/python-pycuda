@@ -1,10 +1,10 @@
 %define module	pycuda
 
 # CUDA version used to build the package:
-%define cuda_ver 4.2
+%define cuda_ver 7.5
 
 # NVIDIA driver version required by CUDA:
-%define driver_ver 285.05
+%define driver_ver 352.39
 
 # Since x11-driver-video-nvidia-current doesn't explicitly provide
 # this, it shouldn't be included in the requires list:
@@ -17,8 +17,8 @@
 Summary:	Python wrapper for NVIDIA's CUDA API
 
 Name:		python-%{module}
-Version:	2012.1
-Release:	5
+Version:	2015.1.3
+Release:	1
 Source0:        http://pypi.python.org/packages/source/p/%{module}/%{module}-%{version}.tar.gz
 License:	MIT
 Group:		Development/Python
@@ -37,6 +37,7 @@ BuildRequires:	python-numpy-devel >= 1.0.4
 BuildRequires:	boost-devel
 BuildRequires:	python-sphinx
 BuildRequires:	python-devel
+ExclusiveArch:	x86_64
 
 %description
 PyCuda lets you access Nvidia's CUDA parallel computation API from
@@ -79,7 +80,6 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 %clean
 
 %files
-%doc doc/build/html/ examples/ README
-%{_includedir}/pycuda/*
+%doc doc/build/html/ examples/ README.rst
 %{py_platsitedir}/pycuda*
 

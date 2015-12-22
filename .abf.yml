@@ -1,2 +1,4 @@
+removed_sources:
+  pycuda-2012.1.tar.gz: dd52ee697ae9f6256efac3bca682be9c6e7c9649
 sources:
-  "pycuda-2012.1.tar.gz": dd52ee697ae9f6256efac3bca682be9c6e7c9649
+  pycuda-2015.1.3.tar.gz: 7a39043769b7e3d55e6aa14668ad633d2d8aca80

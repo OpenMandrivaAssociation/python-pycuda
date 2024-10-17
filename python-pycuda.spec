@@ -23,7 +23,7 @@ Source0:        http://pypi.python.org/packages/source/p/%{module}/%{module}-%{v
 Source100:	python-pycuda.rpmlintrc
 License:	MIT
 Group:		Development/Python
-Url:		http://mathema.tician.de/software/pycuda
+Url:		https://mathema.tician.de/software/pycuda
 Requires:	nvidia-cuda-toolkit >= %{cuda_ver}
 Requires:	nvidia-current-cuda-opencl >= %{driver_ver}
 Requires:	nvidia >= %{driver_ver}

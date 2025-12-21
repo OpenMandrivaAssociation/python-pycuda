@@ -31,6 +31,7 @@ Requires:	python-mako
 Requires:	python-pytools >= 2011.2
 Requires:	python-decorator >= 3.2.0
 Requires:	python-pytest >= 2
+BuildRequires:	make
 BuildRequires:	python-setuptools >= 0.6c9
 BuildRequires:	nvidia-cuda-toolkit-devel >= %{cuda_ver}
 BuildRequires:	nvidia-devel >= %{driver_ver}
